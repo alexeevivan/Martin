@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
-import track1 from "../assets/music/1.mp3";
-import track2 from "../assets/music/2.mp3";
+const track1 = "https://www.dropbox.com/scl/fi/qbtgtzqxni1sxq42pchud/1.mp3?rlkey=xml1o3w28x4j4ajez504ybhc6&st=zztt5j3v&raw=1";
+const track2 = "https://www.dropbox.com/scl/fi/z8r4gccmne4nlwlcefha4/2.mp3?rlkey=z9ajzmlh4pf03cjrlc8zsthvk&st=ek7x29ue&raw=1";
 
 $(function () {
 	const playerTrack = $("#player-track");
