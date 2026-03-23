@@ -11,7 +11,7 @@ module.exports = (env, argv) => {
 		entry: './src/js/index.js',
 
 		output: {
-			publicPath: '/dj-martin/',
+			publicPath: '/Martin/',
 			path: path.resolve(__dirname, 'dist'),
 			filename: 'bundle.js',
 			clean: true,
