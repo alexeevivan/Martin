@@ -1,0 +1,14 @@
+{
+	"ru": {
+		"nav-home": "Главная",
+		"nav-intro": "интро",
+		"nav-collection": "Коллекция",
+		"nav-contact": "Контакты"
+	},
+	"en": {
+		"nav-home": "Home",
+		"nav-intro": "Introduction",
+		"nav-collection": "Collection",
+		"nav-contact": "Contact"
+	}
+}

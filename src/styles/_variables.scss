@@ -1,0 +1,14 @@
+:root {
+	--index: clamp(4px, 1vw + 1vh, 20px);
+	--font-mono: "PPSupplyMono", monospace;
+	--font-sans: "PP Neue Montreal", sans-serif;
+	--color-bg: #000;
+	--color-text: #fff;
+	--color-text-active: #ff6060;
+	--color-text-muted: rgba(255, 255, 255, 0.8);
+	--color-text-light: rgba(255, 255, 255, 0.6);
+	--color-accent: #fff;
+	--font-size-mono: clamp(10px, 1.2vw, 12px);
+	--spacing-sm: 1rem;
+	--spacing-md: 2rem;
+}
