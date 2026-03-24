@@ -1972,3 +1972,11 @@ document.addEventListener("visibilitychange", () => {
 		// safeStartTimer();
 	}
 });
+
+if ('serviceWorker' in navigator) {
+	window.addEventListener('load', () => {
+		navigator.serviceWorker.register('/Martin/sw.js')
+			.then(() => console.log('SW registered'))
+			.catch((err) => console.log('SW error:', err));
+	});
+}

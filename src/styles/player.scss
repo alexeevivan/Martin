@@ -337,11 +337,23 @@
 }
 
 .button {
-	&:hover {
-		filter: drop-shadow(0 0px 3px var(--color-bg2));
+	@media (hover: hover) {
+		&:hover {
+			filter: drop-shadow(0 0px 3px var(--color-bg2));
 
-		i {
-			color: #ff0000;
+			i {
+				color: #ff0000;
+			}
+		}
+	}
+
+	@media (hover: none) {
+		&:active {
+			filter: drop-shadow(0 0px 3px var(--color-bg2));
+
+			i {
+				color: #ff0000;
+			}
 		}
 	}
 }

@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const posthtmlInclude = require('posthtml-include');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 module.exports = (env, argv) => {
@@ -87,6 +88,11 @@ module.exports = (env, argv) => {
 		},
 
 		plugins: [
+			new CopyWebpackPlugin({
+				patterns: [
+					{ from: 'src/sw.js', to: 'sw.js' }
+				]
+			}),
 			new HtmlWebpackPlugin({
 				template: './src/index.html',
 				minify: !isDev && {
