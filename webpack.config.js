@@ -106,6 +106,10 @@ module.exports = (env, argv) => {
 			}),
 		].filter(Boolean),
 
+		performance: {
+			hints: false,
+		},
+
 		optimization: {
 			minimize: !isDev,
 			minimizer: ['...', new CssMinimizerPlugin()],
