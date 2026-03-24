@@ -1,0 +1,105 @@
+@media screen and (max-width: 1024px) {
+	body {
+		#lang-switcher {
+			gap: calc(var(--index) * 2);
+
+			button {
+				padding: 20px;
+				font-size: clamp(var(--index), 20px, calc(var(--index) * 1.5));
+				border: 3px solid rgba(255, 255, 255, 0.4)
+			}
+		}
+
+		main {
+			.help-text {
+				font-size: clamp(var(--index), 20px, var(--index) * 1.5);
+				padding: 20px;
+			}
+
+			#slidesNav {
+				.slide-nav-item {
+					.slide-progress-line {
+						background: linear-gradient(to right, rgba(255, 255, 255, 0.2), transparent);
+						height: 8px;
+					}
+
+					&.active {
+						.slide-progress-line {
+							background: linear-gradient(to right, var(--color-text-active), rgba(255, 255, 255, 0.2), transparent);
+						}
+					}
+
+					.slide-nav-title {
+						font-size: clamp(var(--index), 20px, var(--index) * 1.5);
+					}
+				}
+			}
+
+			#slide-player {
+				#player-container {
+					height: clamp(150px, calc(var(--index)*10), calc(var(--index)*13));
+					width: 75%;
+
+					#player {
+						#player-track {
+							border-radius: calc(var(--index) * 1.5) calc(var(--index) * 1.5) 0 0;
+							padding: 13px 22px calc(var(--index) * 15) 184px;
+
+							&.active {
+								top: calc(var(--index) * (-15) - 100px);
+							}
+
+							#album-name {
+								font-family: var(--font-mono);
+								font-size: clamp(25px, calc(var(--index) * 1.8), 32px);
+								text-transform: uppercase;
+								margin: calc(var(--index) * 2) 0 0 0;
+							}
+
+							#track-name {
+								margin: calc(var(--index) * 2) 0 calc(var(--index) * 1.5) 0;
+								font-size: clamp(16px, calc(var(--index) * 1.25), 24px);
+							}
+
+							#track-time {
+
+								margin-bottom: var(--index);
+
+								#current-time,
+								#track-length {
+									color: #54576f;
+									font-size: 10px;
+								}
+							}
+
+							#seek-bar-container {
+								background-color: #15041d63;
+								height: 12px;
+							}
+						}
+
+						#player-content {
+							height: 200%;
+							border-radius: calc(var(--index) * 1.5) 0;
+							background: rgba(255, 255, 255, 0.75);
+
+							#album-art {
+								width: calc(var(--index) * 13);
+								height: calc(var(--index) * 13);
+
+								&.active {
+									top: calc((var(--index)) * 7 * (-1))
+								}
+							}
+
+							#player-controls {
+								width: 50%;
+								justify-content: space-evenly;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

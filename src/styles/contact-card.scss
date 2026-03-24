@@ -20,6 +20,58 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: end;
+
+	.card__logo {
+		position: absolute;
+		top: 32px;
+		left: 0;
+		right: 0;
+		width: 80%;
+		margin: auto;
+		object-fit: contain;
+		user-select: none;
+		pointer-events: none;
+		box-shadow: inset 0px 0px 10px 0px #1f1f1f;
+	}
+
+	.card__social {
+		a {
+			display: flex;
+			flex-direction: row;
+			height: clamp(25px, calc(var(--index) * 2), 50px);
+			align-items: center;
+
+			svg {
+				max-height: calc(var(--index) * 1.5);
+				width: 20%;
+			}
+
+			span {
+				font-family: var(--font-mono);
+				font-size: 11px;
+				color: var(--color-text-muted);
+				text-transform: capitalize;
+				display: inline-flex;
+				height: calc(var(--index) * 1.5);
+				align-items: center;
+				transition: .6s;
+
+				&:hover {
+					color: var(--color-text-active);
+					transition: .6s;
+
+					&::after {
+						content: url("../assets/svg/external-link-svgrepo-com(1).svg");
+						display: inline-block;
+						width: 16px;
+						height: 16px;
+						margin: 0 0 0 calc(var(--index) / 4);
+						filter: invert(1);
+					}
+				}
+			}
+		}
+	}
 }
 
 .accents {

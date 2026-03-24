@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const posthtmlInclude = require('posthtml-include');
 
+
 module.exports = (env, argv) => {
 	const isDev = argv.mode === 'development';
 
@@ -11,7 +12,7 @@ module.exports = (env, argv) => {
 		entry: './src/js/index.js',
 
 		output: {
-			publicPath: '/Martin/',
+			publicPath: isDev ? '/' : '/Martin/',
 			path: path.resolve(__dirname, 'dist'),
 			filename: 'bundle.js',
 			clean: true,
@@ -32,6 +33,7 @@ module.exports = (env, argv) => {
 				{
 					test: /\.html$/,
 					use: [
+						'html-loader',
 						{
 							loader: 'posthtml-loader',
 							options: {
@@ -42,7 +44,6 @@ module.exports = (env, argv) => {
 								],
 							},
 						},
-						'html-loader',
 					],
 				},
 

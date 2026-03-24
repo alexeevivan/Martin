@@ -9,6 +9,10 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 import slide1 from '../assets/images/solo4.jpg';
 import slideVideo from '../assets/videos/drumshow.mp4';
+import collectionSlide from '../assets/images/collection.jpg';
+import remoteSlide from '../assets/images/remote.jpg';
+import martinLogo from '../assets/images/martin_logo.png';
+
 
 // пример использования
 console.log(THREE);
@@ -187,6 +191,8 @@ class SliderLoadingManager {
 // Initialize preloader
 document.addEventListener("DOMContentLoaded", function () {
 	const loadingManager = new SliderLoadingManager();
+	const logo = document.querySelector('.logo img'); // поставь нужный селектор
+	if (logo) logo.src = martinLogo;
 });
 
 // ========================================
@@ -421,11 +427,11 @@ const slides = [
 	},
 	{
 		title: "nav-intro",
-		media: "https://assets.codepen.io/7558/orange-portrait-002.jpg"
+		media: remoteSlide
 	},
 	{
 		title: "nav-collection",
-		media: "https://assets.codepen.io/7558/orange-portrait-003.jpg"
+		media: collectionSlide
 	},
 	{
 		title: "nav-contact",
