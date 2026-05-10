@@ -113,6 +113,23 @@ module.exports = (env, argv) => {
 		optimization: {
 			minimize: !isDev,
 			minimizer: ['...', new CssMinimizerPlugin()],
+			splitChunks: {
+				chunks: 'all',
+				cacheGroups: {
+					three: {
+						test: /[\\/]node_modules[\\/]three[\\/]/,
+						name: 'three',
+						chunks: 'all',
+						filename: 'three.bundle.js', // ← добавь
+					},
+					vendor: {
+						test: /[\\/]node_modules[\\/]/,
+						name: 'vendors',
+						chunks: 'all',
+						filename: 'vendors.bundle.js', // ← добавь
+					}
+				}
+			}
 		},
 	};
 };

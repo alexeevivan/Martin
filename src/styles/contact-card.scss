@@ -21,6 +21,10 @@
 	flex-direction: column;
 	justify-content: end;
 
+	&.desktop {
+		display: none;
+	}
+
 	.card__logo {
 		position: absolute;
 		top: 32px;
@@ -33,45 +37,6 @@
 		pointer-events: none;
 		box-shadow: inset 0px 0px 10px 0px #1f1f1f;
 	}
-
-	.card__social {
-		a {
-			display: flex;
-			flex-direction: row;
-			height: clamp(25px, calc(var(--index) * 2), 50px);
-			align-items: center;
-
-			svg {
-				max-height: calc(var(--index) * 1.5);
-				width: 20%;
-			}
-
-			span {
-				font-family: var(--font-mono);
-				font-size: 11px;
-				color: var(--color-text-muted);
-				text-transform: capitalize;
-				display: inline-flex;
-				height: calc(var(--index) * 1.5);
-				align-items: center;
-				transition: .6s;
-
-				&:hover {
-					color: var(--color-text-active);
-					transition: .6s;
-
-					&::after {
-						content: url("../assets/svg/external-link-svgrepo-com(1).svg");
-						display: inline-block;
-						width: 16px;
-						height: 16px;
-						margin: 0 0 0 calc(var(--index) / 4);
-						filter: invert(1);
-					}
-				}
-			}
-		}
-	}
 }
 
 .accents {
@@ -81,6 +46,10 @@
 	left: 0;
 	right: 0;
 	top: 20%;
+
+	&.desktop {
+		display: none;
+	}
 
 	.acc-card {
 		width: 330px;
@@ -176,6 +145,126 @@
 	}
 }
 
+.card__social {
+	a {
+		display: flex;
+		flex-direction: row;
+		height: clamp(25px, calc(var(--index) * 2), 50px);
+		align-items: center;
+
+		svg {
+			max-height: calc(var(--index) * 1.5);
+			width: 20%;
+		}
+
+		span {
+			font-family: var(--font-mono);
+			font-size: 11px;
+			color: var(--color-text-muted);
+			text-transform: capitalize;
+			display: inline-flex;
+			height: calc(var(--index) * 1.5);
+			align-items: center;
+			transition: .6s;
+
+			&:hover {
+				color: var(--color-text-active);
+				transition: .6s;
+
+				&::after {
+					content: url("../assets/svg/external-link-svgrepo-com(1).svg");
+					display: inline-block;
+					width: 16px;
+					height: 16px;
+					margin: 0 0 0 calc(var(--index) / 4);
+					filter: invert(1);
+				}
+			}
+		}
+	}
+}
+
+.panel-right {
+	right: 0%;
+	top: 0%;
+	background: #1B1B1B;
+	margin-right: 0%;
+	position: absolute;
+	box-sizing: border-box;
+	height: 100%;
+	width: 50%;
+	clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+	margin-left: -20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #1B1B1B;
+	box-shadow: inset -3px 0px 10px #000,
+		inset -3px -2px 8px #1B1B1B;
+
+	.color-bends-container {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	.card__social {
+		width: 40%;
+		z-index: 2;
+		background: #1b1b1b14;
+		border-radius: 8px;
+		padding: 16px;
+		position: relative;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		box-shadow:
+			0 0 20px rgba(82, 39, 255, 0.3),
+			0 0 40px rgba(255, 159, 252, 0.2),
+			0 0 60px rgba(124, 255, 103, 0.1),
+			inset 0 0 20px rgba(255, 255, 255, 0.05);
+		animation: borderGlow 3s ease-in-out infinite;
+
+		a {
+			width: 100%;
+
+			svg {
+				margin: 0 20px 0 0;
+			}
+		}
+	}
+}
+
+@keyframes borderGlow {
+
+	0%,
+	100% {
+		box-shadow:
+			0 0 20px rgba(82, 39, 255, 0.3),
+			0 0 40px rgba(255, 159, 252, 0.2),
+			0 0 60px #ffbd9714,
+			inset 0 0 20px rgba(0, 0, 0, 0.05);
+		border-color: #1b1b1b33;
+	}
+
+	33% {
+		box-shadow:
+			0 0 25px rgba(255, 159, 252, 0.4),
+			0 0 50px #ffbd9726,
+			0 0 70px rgba(82, 39, 255, 0.2),
+			inset 0 0 25px rgba(0, 0, 0, 0.08);
+		border-color: #1b1b1b33;
+	}
+
+	66% {
+		box-shadow:
+			0 0 30px #ffbd974f,
+			0 0 55px rgba(82, 39, 255, 0.3),
+			0 0 75px rgba(255, 159, 252, 0.2),
+			inset 0 0 30px rgba(0, 0, 0, 0.1);
+		border-color: #1b1b1b33;
+	}
+}
+
 @keyframes rotate360 {
 	to {
 		rotate: 360deg;
@@ -201,6 +290,30 @@
 
 	100% {
 		transform: translateX(10px) translateY(20px) rotate(-3deg) scale(1);
+	}
+}
+
+// Медиа-запросы для мобильных устройств
+@media screen and (max-width: 768px) {
+	.panel-right {
+		display: none !important;
+	}
+
+	.card.desktop,
+	.accents.desktop {
+		display: flex !important;
+	}
+}
+
+// Медиа-запросы для десктопа
+@media screen and (min-width: 769px) {
+	.panel-right {
+		display: flex !important;
+	}
+
+	.card.desktop,
+	.accents.desktop {
+		display: none !important;
 	}
 }
 

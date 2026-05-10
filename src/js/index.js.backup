@@ -6,7 +6,6 @@ import './player.js';
 import './translation.js';
 import { initLanguage } from './translation.js';
 import { createLiquidEther } from './liquidEther.js';
-import { setupContactPage } from './contactAnimation.js';
 console.log("Webpack works");
 import * as THREE from 'three';
 import gsap from 'gsap';
@@ -204,9 +203,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	const loadingManager = new SliderLoadingManager();
 	const logo = document.querySelector('.logo img'); // поставь нужный селектор
 	if (logo) logo.src = martinLogo;
-	
-	// Initialize contact page animation
-	setupContactPage();
 });
 
 // ========================================
@@ -1686,7 +1682,7 @@ const navigateToSlide = (targetIndex) => {
 	}
 	if (targetTexture.userData.video) {
 		targetTexture.userData.video.currentTime = 0;
-		targetTexture.userData.video.play().catch(() => { });
+		targetTexture.userData.video.play().catch(() => {});
 	}
 
 	gsap.fromTo(
@@ -2070,7 +2066,7 @@ document.addEventListener("visibilitychange", () => {
 		// Resume current video when tab is visible
 		const currentTexture = slideTextures[currentSlideIndex];
 		if (currentTexture?.userData.video) {
-			currentTexture.userData.video.play().catch(() => { });
+			currentTexture.userData.video.play().catch(() => {});
 		}
 		// safeStartTimer();
 	}
