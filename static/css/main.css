@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import url("https://fonts.cdnfonts.com/css/pp-neue-montreal");
 @import url("https://fonts.googleapis.com/css2?family=PT+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -122,7 +123,7 @@ button:hover {
   --blending: hard-light;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   body {
     background: #151515;
   }
@@ -143,84 +144,215 @@ button:hover {
   body main .help-text {
     top: var(--spacing-md);
     font-size: clamp(var(--index) / 2, 10px, var(--index) * 1);
-    padding: 20px;
+    padding: var(--index);
   }
-  body main #slidesNav .slide-nav-item .slide-progress-line {
+  body main .slide-html-overlay#slide-intro {
+    background: linear-gradient(to bottom, transparent, #15110C);
+  }
+  body main .slide-html-overlay.visible #slidesNav .slide-nav-item .slide-progress-line {
     background: linear-gradient(to right, rgba(255, 255, 255, 0.2), transparent);
     height: 4px;
     margin-bottom: 12px;
     border-radius: 8px 0 0 8px;
   }
-  body main #slidesNav .slide-nav-item.active .slide-progress-line {
+  body main .slide-html-overlay.visible #slidesNav .slide-nav-item.active .slide-progress-line {
     background: linear-gradient(to right, var(--color-text-active), rgba(255, 255, 255, 0.2), transparent);
   }
-  body main #slidesNav .slide-nav-item .slide-nav-title {
+  body main .slide-html-overlay.visible #slidesNav .slide-nav-item .slide-nav-title {
     font-size: clamp(var(--index) / 2, 10px, var(--index) * 1);
   }
-  body main #slide-player #player-container {
+  body main .slide-html-overlay.visible #intro-container {
+    flex-direction: column;
+    padding: 0 calc(var(--spacing-sm) + var(--spacing-sm));
+  }
+  body main .slide-html-overlay.visible #intro-container .intro-container__slogan {
+    width: 100%;
+    text-align: center;
+    height: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  body main .slide-html-overlay.visible #intro-container .intro-container__slogan img {
+    position: relative;
+    margin: 20px 0 0 0;
+  }
+  body main .slide-html-overlay.visible #intro-container .drop-down {
+    height: 1px;
+    width: 100%;
+    left: 0;
+    top: 50%;
+  }
+  body main .slide-html-overlay.visible #intro-container .drop-down::after {
+    animation: dropLeft 3s 0s infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+    background: linear-gradient(90deg, hsla(0, 0%, 100%, 0) 0, #fff 75%, #fff);
+    height: 100%;
+    width: 15vw;
+    top: 0;
+    left: -50%;
+  }
+  body main .slide-html-overlay.visible #intro-container .drop-up {
+    height: 1px;
+    width: 100%;
+    left: 0;
+    top: 50%;
+  }
+  body main .slide-html-overlay.visible #intro-container .drop-up::after {
+    animation: dropRight 3s 0s infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+    background: linear-gradient(90deg, #fff, #fff 25%, hsla(0, 0%, 100%, 0));
+    height: 100%;
+    width: 15vw;
+    top: 0;
+    left: 50%;
+  }
+  body main .slide-html-overlay.visible #intro-container .intro-container__info {
+    width: 100%;
+    height: 50%;
+  }
+  body main .slide-html-overlay.visible #intro-container .intro-container__info .intro-container__event {
+    height: calc(100% - var(--index));
+  }
+  body main .slide-html-overlay.visible #intro-container .intro-container__info .intro-container__event span {
+    text-align: center;
+    font-size: clamp(11px, var(--index), 20px);
+  }
+  body main .slide-html-overlay.visible#slide-player .player-page__content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body main .slide-html-overlay.visible#slide-player .player-page__content .player-page__gallery {
+    display: none;
+  }
+  body main .slide-html-overlay.visible#slide-player .player-page__content .player-page__player {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body main .slide-html-overlay.visible#slide-player .liquid-ether-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  body main .slide-html-overlay.visible#slide-player #player-container {
     height: calc(var(--index) * 10);
     width: 75%;
+    top: calc(var(--index) * 10);
   }
-  body main #slide-player #player-container #player #player-track {
+  body main .slide-html-overlay.visible#slide-player #player-container #player #player-track {
     opacity: 0;
     border-radius: calc(var(--index) * 1.5) calc(var(--index) * 1.5) 0 0;
-    padding: 13px 22px calc(var(--index) * 15) 184px;
+    padding: 13px 22px calc(var(--index) * 15) 22px;
     transition: 1s;
+    background: linear-gradient(to bottom, #e5e4e1 30%, transparent 100%);
   }
-  body main #slide-player #player-container #player #player-track.active {
+  body main .slide-html-overlay.visible#slide-player #player-container #player #player-track.active {
     opacity: 1;
     top: calc(var(--index) * -15 - 100px);
-    background: linear-gradient(to bottom, #e5e4e1 70%, rgba(229, 228, 225, 0.431372549) 85%, transparent 100%);
+    background: linear-gradient(to bottom, #e5e4e1 60%, transparent 100%);
   }
-  body main #slide-player #player-container #player #player-track #album-name {
+  body main .slide-html-overlay.visible#slide-player #player-container #player #player-track #album-name {
     font-family: var(--font-mono);
-    font-size: clamp(25px, var(--index) * 1.8, 32px);
+    font-size: clamp(16px, var(--index) * 1.6, 30px);
     text-transform: uppercase;
     margin: calc(var(--index) * 2) 0 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
-  body main #slide-player #player-container #player #player-track #track-name {
+  body main .slide-html-overlay.visible#slide-player #player-container #player #player-track #track-name {
     margin: calc(var(--index) * 2) 0 calc(var(--index) * 1.5) 0;
     font-size: clamp(16px, var(--index) * 1.25, 24px);
     font-family: montserrat, sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
-  body main #slide-player #player-container #player #player-track #track-time {
+  body main .slide-html-overlay.visible#slide-player #player-container #player #player-track #track-time {
     margin-bottom: var(--index);
   }
-  body main #slide-player #player-container #player #player-track #track-time #current-time,
-  body main #slide-player #player-container #player #player-track #track-time #track-length {
+  body main .slide-html-overlay.visible#slide-player #player-container #player #player-track #track-time #current-time,
+  body main .slide-html-overlay.visible#slide-player #player-container #player #player-track #track-time #track-length {
     color: #54576f;
     font-size: 10px;
   }
-  body main #slide-player #player-container #player #player-track #seek-bar-container {
+  body main .slide-html-overlay.visible#slide-player #player-container #player #player-track #seek-bar-container {
     background-color: rgba(21, 4, 29, 0.3882352941);
     height: 6px;
   }
-  body main #slide-player #player-container #player #player-track #seek-bar-container #seek-bar {
+  body main .slide-html-overlay.visible#slide-player #player-container #player #player-track #seek-bar-container #seek-bar {
     height: 6px;
   }
-  body main #slide-player #player-container #player #player-content {
+  body main .slide-html-overlay.visible#slide-player #player-container #player #player-content {
     height: 200%;
     border-radius: calc(var(--index) * 1.5) 0;
     background: rgba(255, 255, 255, 0.75);
   }
-  body main #slide-player #player-container #player #player-content #album-art {
+  body main .slide-html-overlay.visible#slide-player #player-container #player #player-content #album-art {
     width: calc(var(--index) * 8);
     height: calc(var(--index) * 8);
   }
-  body main #slide-player #player-container #player #player-content #album-art.active {
+  body main .slide-html-overlay.visible#slide-player #player-container #player #player-content #album-art.active {
     top: calc((var(--index)) * 7 * -1);
   }
-  body main #slide-player #player-container #player #player-content #player-controls {
+  body main .slide-html-overlay.visible#slide-player #player-container #player #player-content #player-controls {
     width: 100%;
     justify-content: space-evenly;
     margin: 0;
   }
-  body main #slide-contact #contact-container .card .card__social a svg {
+  body main .slide-html-overlay.visible#slide-player #player-container #player #player-content #player-controls .control .button {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  body main .slide-html-overlay.visible#slide-contact #contact-container .card .card__social a svg {
     filter: invert(1);
   }
   body main .slides-navigation {
     position: absolute;
     padding-bottom: var(--index);
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  body main .slide-html-overlay#slide-player #player-container {
+    width: 70%;
+  }
+  body main .slide-html-overlay#slide-player #player-container #player #player-content #player-controls .control .button {
+    min-width: 48px;
+    min-height: 48px;
+  }
+}
+@keyframes dropLeft {
+  0% {
+    left: 50%;
+    filter: opacity(0);
+  }
+  100% {
+    left: 110%;
+    filter: opacity(1);
+  }
+}
+@keyframes dropRight {
+  0% {
+    left: 50%;
+    filter: opacity(0);
+  }
+  100% {
+    left: -110%;
+    filter: opacity(1);
   }
 }
 @font-face {
@@ -231,7 +363,7 @@ button:hover {
   font-display: swap;
 }
 body {
-  font-family: var(--font-sans);
+  font-family: "PPSupplyMono", monospace;
   background: var(--color-bg);
   overflow: hidden;
   color: var(--color-text);
@@ -463,18 +595,139 @@ body.ru {
   transition: opacity 0.6s ease;
   z-index: 10;
 }
-
 .slide-html-overlay.visible {
   opacity: 1;
   pointer-events: none;
   /* Появление — с задержкой равной переходу слайда */
   transition: opacity 0.6s ease-in-out 1.5s;
 }
-
-.slide-html-overlay.visible #player-container {
+.slide-html-overlay.visible #player-container,
+.slide-html-overlay.visible #intro-container {
   pointer-events: all;
 }
+.slide-html-overlay.visible #intro-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 75%;
+  align-items: center;
+  padding: 0 calc(var(--spacing-md) + var(--spacing-sm));
+}
+.slide-html-overlay.visible #intro-container .intro-container__slogan {
+  width: 30%;
+  position: relative;
+}
+.slide-html-overlay.visible #intro-container .intro-container__slogan span {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  color: var(--color-text-muted);
+  font-size: calc(var(--index) * 1.25);
+  font-weight: 400;
+  font-style: normal;
+}
+.slide-html-overlay.visible #intro-container .intro-container__slogan img {
+  width: 50%;
+  position: absolute;
+  filter: invert(0.8);
+  margin: 20px 20px 0 0;
+  opacity: 0.8;
+}
+.slide-html-overlay.visible #intro-container .drop-down {
+  height: 100%;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+.slide-html-overlay.visible #intro-container .drop-down::after {
+  animation: dropUp 3s 0s infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+  background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 0, #fff 75%, var(--color-text-active));
+  content: "";
+  display: block;
+  height: 15vh;
+  left: 0;
+  position: absolute;
+  top: -50%;
+  width: 100%;
+}
+.slide-html-overlay.visible #intro-container .drop-up {
+  height: 100%;
+  left: 50%;
+  overflow: visible;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+.slide-html-overlay.visible #intro-container .drop-up::after {
+  animation: dropDown 3s 0s infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+  background: linear-gradient(180deg, var(--color-text-active), #fff 25%, hsla(0, 0%, 100%, 0));
+  content: "";
+  display: block;
+  height: 15vh;
+  left: 0;
+  position: absolute;
+  top: -50%;
+  width: 100%;
+}
+.slide-html-overlay.visible #intro-container .intro-container__info {
+  width: 40%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.slide-html-overlay.visible #intro-container .intro-container__info .intro-container__event {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.slide-html-overlay.visible #intro-container .intro-container__info .intro-container__event span {
+  color: var(--color-text-muted);
+  text-align: end;
+}
+.slide-html-overlay.visible #intro-container .intro-container__info .intro-container__company {
+  width: 100%;
+  height: var(--index);
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.slide-html-overlay.visible #intro-container .intro-container__info .intro-container__company span {
+  font-family: var(--font-sans);
+  display: inline-flex;
+  align-items: center;
+  font-size: calc(var(--index) * 0.75);
+  color: rgba(255, 255, 255, 0.15);
+}
 
+@keyframes dropUp {
+  0% {
+    top: 50%;
+    filter: opacity(0);
+  }
+  100% {
+    top: 110%;
+    filter: opacity(1);
+  }
+}
+@keyframes dropsDown {
+  0% {
+    top: 50%;
+    filter: opacity(0);
+  }
+  100% {
+    top: -110%;
+    filter: opacity(1);
+  }
+}
 /* Preloader styles */
 .slider-wrapper {
   opacity: 0;
@@ -487,7 +740,8 @@ body.ru {
   pointer-events: auto;
 }
 
-#slide-contact::before {
+#slide-contact::before,
+#slide-intro::before {
   content: "";
   position: absolute;
   top: 0;

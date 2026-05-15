@@ -1,0 +1,23 @@
+.liquid-ether-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  touch-action: none;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#slide-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#slide-player #player-container {
+  position: relative;
+  z-index: 1;
+}/*# sourceMappingURL=liquidEther.css.map */

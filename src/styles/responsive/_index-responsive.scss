@@ -129,6 +129,26 @@
 					}
 
 					&#slide-player {
+						.player-page__content {
+							height: 100%;
+							width: 100%;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+
+							.player-page__gallery {
+								display: none;
+							}
+
+							.player-page__player {
+								width: 100%;
+								height: 100%;
+								display: flex;
+								justify-content: center;
+								align-items: center;
+							}
+						}
+
 						.liquid-ether-container {
 							// Ensure background works on mobile
 							position: absolute;

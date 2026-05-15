@@ -7,6 +7,7 @@ import './translation.js';
 import { initLanguage } from './translation.js';
 import { createLiquidEther } from './liquidEther.js';
 import { setupContactPage } from './contactAnimation.js';
+import { initGallerySlideshow } from './gallerySlideshow.js';
 console.log("Webpack works");
 import * as THREE from 'three';
 import gsap from 'gsap';
@@ -207,6 +208,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	
 	// Initialize contact page animation
 	setupContactPage();
+	
+	// Initialize gallery slideshow
+	initGallerySlideshow();
 });
 
 // ========================================
